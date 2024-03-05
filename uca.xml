@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>Terminal</icon>
+	<name>Abrir o Emulador de Terminal aqui</name>
+	<submenu></submenu>
+	<unique-id>1474152865108510-2</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Abrirar o terminal neste caminho</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>stock_open</icon>
+	<name>Open as Root</name>
+	<submenu></submenu>
+	<unique-id>1474656582377191-10</unique-id>
+	<command>pkexec thunar %f</command>
+	<description>Open folder with administration privileges</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>accessories-text-editor-symbolic</icon>
+	<name>Edit as Root</name>
+	<submenu></submenu>
+	<unique-id>1519045682678628-6</unique-id>
+	<command>pkexec micro %f </command>
+	<description>Edit selected file as the root user</description>
+	<range></range>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>filefind</icon>
+	<name>Localizar nesta pasta</name>
+	<submenu></submenu>
+	<unique-id>1473197638622287-2</unique-id>
+	<command>catfish --path=%f</command>
+	<description>Procurar ficheiros dentro desta pasta</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>---- Resize &amp; Rotate ----</name>
+	<submenu></submenu>
+	<unique-id>1708631629381765-4</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>photolayoutseditor</icon>
+	<name>Resize Pictures</name>
+	<submenu></submenu>
+	<unique-id>1519045249948148-4</unique-id>
+	<command>~/.config/Thunar/custom_actions/picture_resize.sh %N</command>
+	<description>Resize pictures in /Resized</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-left</icon>
+	<name>Rotate Left</name>
+	<submenu></submenu>
+	<unique-id>1460990813584868-8</unique-id>
+	<command>~/.config/Thunar/custom_actions/rotate_pic_left.sh l %N</command>
+	<description>Rotate pictures to the left</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-right</icon>
+	<name>Rotate Right</name>
+	<submenu></submenu>
+	<unique-id>1460990794528634-7</unique-id>
+	<command>~/.config/Thunar/custom_actions/rotate_pic_right.sh r %N</command>
+	<description>Rotates Pictures to Right</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>arista</icon>
+	<name>Rotate Pictures</name>
+	<submenu></submenu>
+	<unique-id>1460992133994383-2</unique-id>
+	<command>~/.config/Thunar/custom_actions/picture_rotate.sh %N</command>
+	<description>Rotate Pictures Left or Right</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>emblem-symbolic-link</icon>
+	<name>Create a Link</name>
+	<submenu></submenu>
+	<unique-id>1474479897914628-3</unique-id>
+	<command>ln -s %f  &apos;Link to %n&apos;</command>
+	<description>Create a symbolic link for each selected item</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+</action>
+<action>
+	<icon>document-edit-encrypt</icon>
+	<name>Create Individual MD5</name>
+	<submenu></submenu>
+	<unique-id>1590022818814776-7</unique-id>
+	<command>zenity --info --text=&quot;MD5 Checksum file created! $(md5sum %n &gt; %n.md5)&quot; | zenity --progress --width=300 --title=&quot;Creating checksum file&quot; --pulsate --auto-kill --auto-close</command>
+	<description>Create Indivual MD5 Hash File</description>
+	<range></range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>gnome-run</icon>
+	<name>Check MD5</name>
+	<submenu></submenu>
+	<unique-id>1474655313767124-7</unique-id>
+	<command>zenity --info --title=&quot;Check md5sum for %n&quot; --text=&quot;$(md5sum %n)&quot; | zenity --progress --pulsate --auto-kill --auto-close --title=&quot;Checksum utility&quot; --text=&quot;Calculating md5sum for %n&quot;</command>
+	<description>verify ISO file data integrity using the MD5</description>
+	<range></range>
+	<patterns>*.iso;*.ISO;*.img;*.IMG</patterns>
+	<startup-notify/>
+	<other-files/>
+</action>
+<action>
+	<icon>document-edit-decrypt-verify</icon>
+	<name>Verify MD5 checksum</name>
+	<submenu></submenu>
+	<unique-id>1590018551959067-6</unique-id>
+	<command>zenity --info --no-wrap --title=&quot;MD5 checksum results&quot; --text=&quot;$(md5sum -c %n)&quot; | zenity --progress --width=250 --title=&quot;Verifying checksum(s)&quot; --pulsate --auto-kill --auto-close</command>
+	<description>Verify MD5 checksum</description>
+	<range></range>
+	<patterns>*.md5;*.MD5;*md5;MD5</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>document-edit-decrypt-verify</icon>
+	<name>Create Group MD5 file</name>
+	<submenu></submenu>
+	<unique-id>1590012901332224-1</unique-id>
+	<command>zenity --info --text=&quot;MD5 Checksum file created! $(md5sum %N &gt; checksum-files.md5)&quot; | zenity --progress --width=300 --title=&quot;Creating checksum file&quot; --pulsate --auto-kill --auto-close</command>
+	<description>Create Group MD5 Checksum file</description>
+	<range></range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>fonts</icon>
+	<name>Install .ttf Font</name>
+	<submenu></submenu>
+	<unique-id>1474479897914959-7</unique-id>
+	<command>fontinstaller %f %n</command>
+	<description>Installs .ttf Fonts for the user or system</description>
+	<range></range>
+	<patterns>*.ttf;*.TTF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>edit-copy-symbolic</icon>
+	<name>Make Backup File</name>
+	<submenu></submenu>
+	<unique-id>1519045040066666-3</unique-id>
+	<command>cp --backup=t %f %f.bak</command>
+	<description>Backup the selected File</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>selection-move-to-layer-below</icon>
+	<name>Mover Ficheiros</name>
+	<submenu></submenu>
+	<unique-id>1532899206883793-1</unique-id>
+	<command>~/Transferências/WIP/TEMP/Mover_Ficheiros.sh %f</command>
+	<description></description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>category-delete</icon>
+	<name>Apagar Pastas</name>
+	<submenu></submenu>
+	<unique-id>1532900565070998-2</unique-id>
+	<command>~/Transferências/WIP/TEMP/Apagar_Pastas.sh %f</command>
+	<description></description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>office-chart-pie</icon>
+	<name>Dir Size</name>
+	<submenu></submenu>
+	<unique-id>1538042297239411-1</unique-id>
+	<command>qdirstat %n</command>
+	<description>Dir and subdir sizes</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>text-x-generic</icon>
+	<name>Create New File</name>
+	<submenu></submenu>
+	<unique-id>1686395017779766-1</unique-id>
+	<command>/home/ricardo/.config/Thunar/custom_actions/newfile.sh %f</command>
+	<description>Create New File using Zenity</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>merge</icon>
+	<name>Merge Videos</name>
+	<submenu></submenu>
+	<unique-id>1572402911177262-1</unique-id>
+	<command>vlc %N --sout &quot;#gather:std{access=file,dst=merged-video-files.mp4}&quot; --sout-keep</command>
+	<description>Merge several video files into one single file</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>---- Convert Images ----</name>
+	<submenu></submenu>
+	<unique-id>1708631912285231-7</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>gtk-convert</icon>
+	<name>WEBP to PNG</name>
+	<submenu></submenu>
+	<unique-id>1567961885538811-1</unique-id>
+	<command>dwebp %f -o %f.png</command>
+	<description>Convert webp files to ong format</description>
+	<range></range>
+	<patterns>*.webp</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-generic</icon>
+	<name>WEBP to JPG</name>
+	<submenu></submenu>
+	<unique-id>1605699647850464-1</unique-id>
+	<command>dwebp %f -o %f.jpg</command>
+	<description></description>
+	<range></range>
+	<patterns>*.webp</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-generic</icon>
+	<name>PDF to PNG</name>
+	<submenu></submenu>
+	<unique-id>1605376650338730-1</unique-id>
+	<command>pdftoppm -png %f %n</command>
+	<description>Convert PDF pages to PNG images</description>
+	<range></range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>JPG to WEBP</name>
+	<submenu></submenu>
+	<unique-id>1708621110400499-1</unique-id>
+	<command>cwebp -q 90 %f -o %f.webp</command>
+	<description>Convert JPG to WebP</description>
+	<range>*</range>
+	<patterns>*.jpg</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-generic</icon>
+	<name>PDF to JPG</name>
+	<submenu></submenu>
+	<unique-id>1605376876790664-2</unique-id>
+	<command>pdftoppm -jpeg %f %n</command>
+	<description>Convert PDF pages to JPG images</description>
+	<range></range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>PNG to JPG</name>
+	<submenu></submenu>
+	<unique-id>1708622587940064-3</unique-id>
+	<command>convert -quality 75 %F `basename %F .png`.jpg</command>
+	<description>Convert PNG image to JPG</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>PNG to WEBP</name>
+	<submenu></submenu>
+	<unique-id>1708622077195670-2</unique-id>
+	<command>cwebp -q 90 %f -o $(basename %f .png).webp</command>
+	<description>Convert PNG to WebP</description>
+	<range>*</range>
+	<patterns>*.png</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>---- PDF ----</name>
+	<submenu></submenu>
+	<unique-id>1708631793000594-5</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>pdfarranger</icon>
+	<name>Merge PDFs qpdf</name>
+	<submenu></submenu>
+	<unique-id>1588613731972560-1</unique-id>
+	<command>qpdf --empty --pages %F -- MergedPDFs.pdf</command>
+	<description>Merge various PDF files</description>
+	<range></range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>pdfarranger</icon>
+	<name>Merge PDFs pdfunite</name>
+	<submenu></submenu>
+	<unique-id>1588614099113077-2</unique-id>
+	<command>pdfunite %F mergedPDFs_pdfunite.pdf</command>
+	<description>Merge PDFs files</description>
+	<range></range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Convert Image to PDF</name>
+	<submenu></submenu>
+	<unique-id>1686927528082051-1</unique-id>
+	<command>convert %f %f.pdf</command>
+	<description>Convert image to PDF</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>---- Music ----</name>
+	<submenu></submenu>
+	<unique-id>1708631820335736-6</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.mp3</icon>
+	<name>FLAC to MP3</name>
+	<submenu></submenu>
+	<unique-id>1698256046042160-1</unique-id>
+	<command>xfce4-terminal -e &quot;parallel ffmpeg  -i &apos;{}&apos; -q:a 0 &apos;{}.mp3&apos; ::: %F&quot;</command>
+	<description>Convert FLAC to MP3</description>
+	<range></range>
+	<patterns>*.flac</patterns>
+	<audio-files/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.flac</icon>
+	<name>WAV to FLAC</name>
+	<submenu></submenu>
+	<unique-id>1701805442663686-1</unique-id>
+	<command>xfce4-terminal -e &quot;parallel ffmpeg  -i &apos;{}&apos; -q:a 0 &apos;{}.flac&apos; ::: %F&quot;</command>
+	<description>Convert WAV to FLAC</description>
+	<range></range>
+	<patterns>*.wav</patterns>
+	<audio-files/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.mp3</icon>
+	<name>Split MP3 with .cue</name>
+	<submenu></submenu>
+	<unique-id>1700152428851492-1</unique-id>
+	<command>xfce4-terminal --working-directory=%d --command=&quot;mp3splt -c $(basename %f .mp3).cue -o \&quot;@n - @t\&quot; %f&quot; --hold</command>
+	<description>Split the MP3 file using cue sheet</description>
+	<range></range>
+	<patterns>*.mp3</patterns>
+	<directories/>
+	<audio-files/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.flac</icon>
+	<name>Split FLAC with .cue</name>
+	<submenu></submenu>
+	<unique-id>1699474080889624-1</unique-id>
+	<command>xfce4-terminal -e &quot;flacon -s -p %f&quot;</command>
+	<description>Split the FLAC file using cue sheet</description>
+	<range></range>
+	<patterns>*.cue</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>playlist</icon>
+	<name>Create M3U Playlist</name>
+	<submenu></submenu>
+	<unique-id>1700163624772669-1</unique-id>
+	<command>/home/ricardo/.local/bin/create_m3u_playlist.sh %F</command>
+	<description>Generates an M3U playlist from selected files and/or folders</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+</action>
+<action>
+	<icon>application-x-iso9660-appimage</icon>
+	<name>Extract AppImage</name>
+	<submenu></submenu>
+	<unique-id>1693599304774551-1</unique-id>
+	<command>%f  --appimage-extract</command>
+	<description>Extract AppImage</description>
+	<range>*</range>
+	<patterns>*.AppImage</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>application-x-compress</icon>
+	<name>Decompress XZM</name>
+	<submenu></submenu>
+	<unique-id>1672081496378991-1</unique-id>
+	<command>unsquashfs %f</command>
+	<description>decompress zxm module</description>
+	<range>*</range>
+	<patterns>*.xzm</patterns>
+	<other-files/>
+</action>
+</actions>
