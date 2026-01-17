@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
+	<icon>go-top</icon>
+	<name>Go to root folder</name>
+	<submenu></submenu>
+	<unique-id>1763669396422685-1</unique-id>
+	<command>/home/ricardo/.config/Thunar/custom_actions/thunar-go-to-root.sh</command>
+	<description>Go to root folder</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
 	<icon>Terminal</icon>
-	<name>Abrir o Emulador de Terminal aqui</name>
+	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1474152865108510-2</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
-	<description>Abrirar o terminal neste caminho</description>
+	<description>Open terminal in this path</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>utilities-terminal_su</icon>
+	<name>Open terminal here as root</name>
+	<submenu></submenu>
+	<unique-id>1763654529009429-1</unique-id>
+	<command>pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /bin/bash -c &quot;cd &apos;$(realpath &apos;%f&apos;)&apos; &amp;&amp; xfce4-terminal&quot;</command>
+	<description>Open terminal here as root</description>
 	<range></range>
 	<patterns>*</patterns>
 	<directories/>
@@ -16,7 +38,7 @@
 	<name>Open as Root</name>
 	<submenu></submenu>
 	<unique-id>1474656582377191-10</unique-id>
-	<command>pkexec thunar %f</command>
+	<command>pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY thunar %f</command>
 	<description>Open folder with administration privileges</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -27,82 +49,34 @@
 	<name>Edit as Root</name>
 	<submenu></submenu>
 	<unique-id>1519045682678628-6</unique-id>
-	<command>pkexec micro %f </command>
+	<command>pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY xed %f </command>
 	<description>Edit selected file as the root user</description>
 	<range></range>
 	<patterns>*</patterns>
+	<other-files/>
 	<text-files/>
 </action>
 <action>
-	<icon>filefind</icon>
-	<name>Localizar nesta pasta</name>
+	<icon>office-chart-pie</icon>
+	<name>Dir Size</name>
 	<submenu></submenu>
-	<unique-id>1473197638622287-2</unique-id>
-	<command>catfish --path=%f</command>
-	<description>Procurar ficheiros dentro desta pasta</description>
+	<unique-id>1538042297239411-1</unique-id>
+	<command>qdirstat %n</command>
+	<description>Display folder and subfolder sizes</description>
 	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
-	<icon></icon>
-	<name>---- Resize &amp; Rotate ----</name>
+	<icon>view-table-of-contents-ltr</icon>
+	<name>List Dir to File</name>
 	<submenu></submenu>
-	<unique-id>1708631629381765-4</unique-id>
-	<command></command>
-	<description></description>
+	<unique-id>1761782413046377-2</unique-id>
+	<command>bash -c &apos;ls -lha --group-directories-first &gt; dir-contents.txt&apos;</command>
+	<description>List directory contents to text file</description>
 	<range>*</range>
 	<patterns>*</patterns>
 	<directories/>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
-</action>
-<action>
-	<icon>photolayoutseditor</icon>
-	<name>Resize Pictures</name>
-	<submenu></submenu>
-	<unique-id>1519045249948148-4</unique-id>
-	<command>~/.config/Thunar/custom_actions/picture_resize.sh %N</command>
-	<description>Resize pictures in /Resized</description>
-	<range></range>
-	<patterns>*</patterns>
-	<image-files/>
-</action>
-<action>
-	<icon>object-rotate-left</icon>
-	<name>Rotate Left</name>
-	<submenu></submenu>
-	<unique-id>1460990813584868-8</unique-id>
-	<command>~/.config/Thunar/custom_actions/rotate_pic_left.sh l %N</command>
-	<description>Rotate pictures to the left</description>
-	<range></range>
-	<patterns>*</patterns>
-	<image-files/>
-</action>
-<action>
-	<icon>object-rotate-right</icon>
-	<name>Rotate Right</name>
-	<submenu></submenu>
-	<unique-id>1460990794528634-7</unique-id>
-	<command>~/.config/Thunar/custom_actions/rotate_pic_right.sh r %N</command>
-	<description>Rotates Pictures to Right</description>
-	<range></range>
-	<patterns>*</patterns>
-	<image-files/>
-</action>
-<action>
-	<icon>arista</icon>
-	<name>Rotate Pictures</name>
-	<submenu></submenu>
-	<unique-id>1460992133994383-2</unique-id>
-	<command>~/.config/Thunar/custom_actions/picture_rotate.sh %N</command>
-	<description>Rotate Pictures Left or Right</description>
-	<range></range>
-	<patterns>*</patterns>
-	<image-files/>
 </action>
 <action>
 	<icon>emblem-symbolic-link</icon>
@@ -111,10 +85,14 @@
 	<unique-id>1474479897914628-3</unique-id>
 	<command>ln -s %f  &apos;Link to %n&apos;</command>
 	<description>Create a symbolic link for each selected item</description>
-	<range></range>
-	<patterns>*</patterns>
+	<range>*</range>
+	<patterns>**</patterns>
 	<directories/>
+	<audio-files/>
+	<image-files/>
 	<other-files/>
+	<text-files/>
+	<video-files/>
 </action>
 <action>
 	<icon>document-edit-encrypt</icon>
@@ -130,6 +108,27 @@
 	<other-files/>
 	<text-files/>
 	<video-files/>
+</action>
+<action>
+	<icon>emblem-unlocked</icon>
+	<name>Check SHA-256 hash</name>
+	<submenu></submenu>
+	<unique-id>1764007962916494-1</unique-id>
+	<command>xfce4-terminal --hold -e &quot;sha256sum %F&quot;</command>
+	<description>Check the SHA-256 hash</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>emblem-encrypted-unlocked</icon>
+	<name>Verify with .sig</name>
+	<submenu>xfce4-terminal --hold -e &quot;sha256sum -c %F&quot;</submenu>
+	<unique-id>1764008249695382-2</unique-id>
+	<command></command>
+	<description>Verifies integrity using .sig</description>
+	<range>*</range>
+	<patterns>*.sig</patterns>
 </action>
 <action>
 	<icon>gnome-run</icon>
@@ -185,7 +184,8 @@
 	<name>Make Backup File</name>
 	<submenu></submenu>
 	<unique-id>1519045040066666-3</unique-id>
-	<command>cp --backup=t %f %f.bak</command>
+	<command>for file in %N; do cp --backup=t &quot;$file&quot; &quot;$file.bak&quot;; done
+</command>
 	<description>Backup the selected File</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -197,68 +197,23 @@
 	<video-files/>
 </action>
 <action>
-	<icon>selection-move-to-layer-below</icon>
-	<name>Mover Ficheiros</name>
-	<submenu></submenu>
-	<unique-id>1532899206883793-1</unique-id>
-	<command>~/Transferências/WIP/TEMP/Mover_Ficheiros.sh %f</command>
-	<description></description>
-	<range></range>
-	<patterns>*</patterns>
-	<directories/>
-</action>
-<action>
-	<icon>category-delete</icon>
-	<name>Apagar Pastas</name>
-	<submenu></submenu>
-	<unique-id>1532900565070998-2</unique-id>
-	<command>~/Transferências/WIP/TEMP/Apagar_Pastas.sh %f</command>
-	<description></description>
-	<range></range>
-	<patterns>*</patterns>
-	<directories/>
-</action>
-<action>
-	<icon>office-chart-pie</icon>
-	<name>Dir Size</name>
-	<submenu></submenu>
-	<unique-id>1538042297239411-1</unique-id>
-	<command>qdirstat %n</command>
-	<description>Dir and subdir sizes</description>
-	<range></range>
-	<patterns>*</patterns>
-	<directories/>
-</action>
-<action>
 	<icon>text-x-generic</icon>
 	<name>Create New File</name>
 	<submenu></submenu>
 	<unique-id>1686395017779766-1</unique-id>
-	<command>/home/ricardo/.config/Thunar/custom_actions/newfile.sh %f</command>
+	<command>sh ~/.config/Thunar/custom_actions/newfile.sh %f</command>
 	<description>Create New File using Zenity</description>
 	<range></range>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
-	<icon>merge</icon>
-	<name>Merge Videos</name>
+	<icon>filename-underscore-amarok</icon>
+	<name>Replace space with underscore</name>
 	<submenu></submenu>
-	<unique-id>1572402911177262-1</unique-id>
-	<command>vlc %N --sout &quot;#gather:std{access=file,dst=merged-video-files.mp4}&quot; --sout-keep</command>
-	<description>Merge several video files into one single file</description>
-	<range></range>
-	<patterns>*</patterns>
-	<startup-notify/>
-	<video-files/>
-</action>
-<action>
-	<icon></icon>
-	<name>---- Convert Images ----</name>
-	<submenu></submenu>
-	<unique-id>1708631912285231-7</unique-id>
-	<command></command>
-	<description></description>
+	<unique-id>1721736414039691-1</unique-id>
+	<command>sh ~/.config/Thunar/custom_actions/replace_spaces_with_underscores.sh %F</command>
+	<description>Replace spaces in filenames with underscores recursively</description>
 	<range>*</range>
 	<patterns>*</patterns>
 	<directories/>
@@ -269,14 +224,221 @@
 	<video-files/>
 </action>
 <action>
-	<icon>gtk-convert</icon>
-	<name>WEBP to PNG</name>
+	<icon>text-x-diff</icon>
+	<name>diff</name>
 	<submenu></submenu>
-	<unique-id>1567961885538811-1</unique-id>
-	<command>dwebp %f -o %f.png</command>
-	<description>Convert webp files to ong format</description>
+	<unique-id>1727006573012976-1</unique-id>
+	<command>meld %F</command>
+	<description>Show differences between files</description>
+	<range>*</range>
+	<patterns>*.php;*.txt;*.py;*.json</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>----------------------------- VIDEO ----------------------------- </name>
+	<submenu></submenu>
+	<unique-id>1758478699131037-1</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+</action>
+<action>
+	<icon>merge</icon>
+	<name>Merge Videos</name>
+	<submenu></submenu>
+	<unique-id>1572402911177262-1</unique-id>
+	<command>xfce4-terminal -e &quot;~/.config/Thunar/custom_actions/merge-videos.sh %N&quot;</command>
+	<description>Merge several video files into one single file</description>
 	<range></range>
-	<patterns>*.webp</patterns>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<video-files/>
+</action>
+<action>
+	<icon>vertical</icon>
+	<name>Rotate Video to Vertical</name>
+	<submenu></submenu>
+	<unique-id>1732025922479384-1</unique-id>
+	<command>~/.config/Thunar/custom_actions/convert-video-to-vertical.sh %f</command>
+	<description>Rotate horizontal video 90º anti-clockwise</description>
+	<range>*</range>
+	<patterns>*.mp4;*.mkv;*.mov</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon>object-flip-vertical</icon>
+	<name>Flip Video Vertically</name>
+	<submenu></submenu>
+	<unique-id>1738095622838699-1</unique-id>
+	<command>~/.config/Thunar/custom_actions/flip-video-vertical.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon>selection-move-to-layer-below</icon>
+	<name>Move Video Files</name>
+	<submenu></submenu>
+	<unique-id>1532899206883793-1</unique-id>
+	<command>sh ~/.config/Thunar/custom_actions/move-video-and-subtitles.sh %f</command>
+	<description>Move video and subtitle files into current dir from subdirs</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.mp4</icon>
+	<name>Convert to MP4</name>
+	<submenu></submenu>
+	<unique-id>1767956464781603-1</unique-id>
+	<command>xfce4-terminal --hold --command=&quot;$HOME/.config/Thunar/custom_actions/convert-video-to-mp4.sh %F&quot;
+</command>
+	<description>Convert any video format to MP4</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<video-files/>
+</action>
+<action>
+	<icon>RenameMyTVSeries</icon>
+	<name>Rename TV Series</name>
+	<submenu></submenu>
+	<unique-id>1738515435343868-1</unique-id>
+	<command>xfce4-terminal --hold -e &quot;bash -c &apos;\&quot;$HOME/.config/Thunar/custom_actions/autotag-batch.sh\&quot; \&quot;\$@\&quot;&apos; dummy %F&quot;
+</command>
+	<description>Rename episodes of TV Series</description>
+	<range>*</range>
+	<patterns>*.mkv;*.mp4;*avi</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>----------------------------- IMAGE ----------------------------- </name>
+	<submenu></submenu>
+	<unique-id>1731238463599427-2</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>photolayoutseditor</icon>
+	<name>Resize Pictures</name>
+	<submenu></submenu>
+	<unique-id>1519045249948148-4</unique-id>
+	<command>~/.config/Thunar/custom_actions/picture_resize.sh %N</command>
+	<description>Resize pictures in /Resized</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>arista</icon>
+	<name>Rotate Pictures</name>
+	<submenu></submenu>
+	<unique-id>1460992133994383-2</unique-id>
+	<command>~/.config/Thunar/custom_actions/picture_rotate.sh %N</command>
+	<description>Rotate Pictures Left or Right</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-left</icon>
+	<name>Rotate Left</name>
+	<submenu></submenu>
+	<unique-id>1460990813584868-8</unique-id>
+	<command>~/.config/Thunar/custom_actions/rotate_pic_left.sh l %N</command>
+	<description>Rotate pictures to the left</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>object-rotate-right</icon>
+	<name>Rotate Right</name>
+	<submenu></submenu>
+	<unique-id>1460990794528634-7</unique-id>
+	<command>~/.config/Thunar/custom_actions/rotate_pic_right.sh r %N</command>
+	<description>Rotates Pictures to Right</description>
+	<range></range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>fr.romainvigier.MetadataCleaner</icon>
+	<name>Remove Metadata</name>
+	<submenu></submenu>
+	<unique-id>1719931084075339-1</unique-id>
+	<command>/usr/bin/mat2 --inplace %F</command>
+	<description>Remove metadata with mat2</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>image-x-ico</icon>
+	<name>JPG to WEBP</name>
+	<submenu></submenu>
+	<unique-id>1708621110400499-1</unique-id>
+	<command>~/.config/Thunar/custom_actions/convert-jpg-to-webp.sh %F</command>
+	<description>Convert jpg files to webp</description>
+	<range>*</range>
+	<patterns>*.jpg</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>folder-pink-image-people</icon>
+	<name>JPG to AVIF</name>
+	<submenu></submenu>
+	<unique-id>1741440657363056-1</unique-id>
+	<command>convert -quality 75 %F `basename %F .jpg`.avif</command>
+	<description>Convert jpg files to avif format</description>
+	<range>*</range>
+	<patterns>*.jpg;*.jpeg;*.JPG:*.JPEG</patterns>
+	<directories/>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-jpeg</icon>
+	<name>PNG to JPG</name>
+	<submenu></submenu>
+	<unique-id>1708622587940064-3</unique-id>
+	<command>magick -quality 75 %F `basename %F .png`.jpg</command>
+	<description>Convert png files to jpg</description>
+	<range>*</range>
+	<patterns>*.png;*.PNG</patterns>
+	<directories/>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-gif</icon>
+	<name>PNG to WEBP</name>
+	<submenu></submenu>
+	<unique-id>1708622077195670-2</unique-id>
+	<command>~/.config/Thunar/custom_actions/convert-png-to-webp.sh %F</command>
+	<description>Convert png files to webp</description>
+	<range>*</range>
+	<patterns>*.png</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>image-x-bmp</icon>
+	<name>PNG to AVIF</name>
+	<submenu></submenu>
+	<unique-id>1741440993650458-2</unique-id>
+	<command>convert -quality 75 %F `basename %F .png`.avif</command>
+	<description>Convert jpg files to avif</description>
+	<range>*</range>
+	<patterns>*.png;*.PNG</patterns>
+	<directories/>
 	<image-files/>
 </action>
 <action>
@@ -285,10 +447,54 @@
 	<submenu></submenu>
 	<unique-id>1605699647850464-1</unique-id>
 	<command>dwebp %f -o %f.jpg</command>
-	<description></description>
+	<description>Convert webp files to jpg format</description>
 	<range></range>
 	<patterns>*.webp</patterns>
 	<image-files/>
+</action>
+<action>
+	<icon>image-x-xcf</icon>
+	<name>WEBP to PNG</name>
+	<submenu></submenu>
+	<unique-id>1567961885538811-1</unique-id>
+	<command>dwebp %f -o %f.png</command>
+	<description>Convert webp files to png format</description>
+	<range></range>
+	<patterns>*.webp</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>com.github.cassidyjames.palette</icon>
+	<name>Invert Colors</name>
+	<submenu></submenu>
+	<unique-id>1734449381867498-1</unique-id>
+	<command>for file in %F; do convert &quot;$file&quot; -channel RGB -negate &quot;$file&quot;; done</command>
+	<description>Invert colors of selected files</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>application-pdf</icon>
+	<name>Convert Image to PDF</name>
+	<submenu></submenu>
+	<unique-id>1686927528082051-1</unique-id>
+	<command>convert %f %f.pdf</command>
+	<description>Convert image files to pdf</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>----------------------------- PDF ----------------------------- </name>
+	<submenu></submenu>
+	<unique-id>1731238335375946-1</unique-id>
+	<command></command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
 </action>
 <action>
 	<icon>image-x-generic</icon>
@@ -302,15 +508,15 @@
 	<other-files/>
 </action>
 <action>
-	<icon></icon>
-	<name>JPG to WEBP</name>
+	<icon>pdfarranger</icon>
+	<name>Merge PDFs pdfunite</name>
 	<submenu></submenu>
-	<unique-id>1708621110400499-1</unique-id>
-	<command>cwebp -q 90 %f -o %f.webp</command>
-	<description>Convert JPG to WebP</description>
-	<range>*</range>
-	<patterns>*.jpg</patterns>
-	<image-files/>
+	<unique-id>1588614099113077-2</unique-id>
+	<command>pdfunite %F mergedPDFs_pdfunite.pdf</command>
+	<description>Merge PDFs files</description>
+	<range></range>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
 </action>
 <action>
 	<icon>image-x-generic</icon>
@@ -324,99 +530,67 @@
 	<other-files/>
 </action>
 <action>
-	<icon></icon>
-	<name>PNG to JPG</name>
+	<icon>com.github.gijsgoudzwaard.image-optimizer</icon>
+	<name>Compress PNG</name>
 	<submenu></submenu>
-	<unique-id>1708622587940064-3</unique-id>
-	<command>convert -quality 75 %F `basename %F .png`.jpg</command>
-	<description>Convert PNG image to JPG</description>
-	<range>*</range>
-	<patterns>*</patterns>
-	<directories/>
-	<image-files/>
-</action>
-<action>
-	<icon></icon>
-	<name>PNG to WEBP</name>
-	<submenu></submenu>
-	<unique-id>1708622077195670-2</unique-id>
-	<command>cwebp -q 90 %f -o $(basename %f .png).webp</command>
-	<description>Convert PNG to WebP</description>
+	<unique-id>1754159934766216-1</unique-id>
+	<command>pngquant --quality=65-80 --ext .png --force %F</command>
+	<description>Compress selected PNG files using pngquant</description>
 	<range>*</range>
 	<patterns>*.png</patterns>
 	<image-files/>
 </action>
 <action>
-	<icon></icon>
-	<name>---- PDF ----</name>
+	<icon>pdfeditor</icon>
+	<name>Split Faturas</name>
 	<submenu></submenu>
-	<unique-id>1708631793000594-5</unique-id>
-	<command></command>
+	<unique-id>1731454659242928-1</unique-id>
+	<command>sh ~/.config/Thunar/custom_actions/split_pdf_orig_duplic_tripl.sh %F</command>
 	<description></description>
 	<range>*</range>
-	<patterns>*</patterns>
-	<directories/>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
-</action>
-<action>
-	<icon>pdfarranger</icon>
-	<name>Merge PDFs qpdf</name>
-	<submenu></submenu>
-	<unique-id>1588613731972560-1</unique-id>
-	<command>qpdf --empty --pages %F -- MergedPDFs.pdf</command>
-	<description>Merge various PDF files</description>
-	<range></range>
-	<patterns>*.pdf</patterns>
+	<patterns>*.pdf;*.PDF</patterns>
 	<other-files/>
 </action>
 <action>
-	<icon>pdfarranger</icon>
-	<name>Merge PDFs pdfunite</name>
+	<icon>gpdftext</icon>
+	<name>Split PDF</name>
 	<submenu></submenu>
-	<unique-id>1588614099113077-2</unique-id>
-	<command>pdfunite %F mergedPDFs_pdfunite.pdf</command>
-	<description>Merge PDFs files</description>
-	<range></range>
-	<patterns>*.pdf</patterns>
-	<other-files/>
-</action>
-<action>
-	<icon>application-pdf</icon>
-	<name>Convert Image to PDF</name>
-	<submenu></submenu>
-	<unique-id>1686927528082051-1</unique-id>
-	<command>convert %f %f.pdf</command>
-	<description>Convert image to PDF</description>
+	<unique-id>1730842804696208-1</unique-id>
+	<command>~/MEGAsync/Private/SEGURANCAS/Thunar/custom_actions/split_pdf.sh %F</command>
+	<description>Splits PDF file pages into individual PDF files</description>
 	<range>*</range>
-	<patterns>*</patterns>
-	<image-files/>
+	<patterns>*.pdf;*.PDF</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>dialog-text-and-font</icon>
+	<name>Edit PDF Title</name>
+	<submenu></submenu>
+	<unique-id>1730914383486052-1</unique-id>
+	<command>TITLE=$(zenity --entry --title=&quot;Novo Título do PDF&quot; --text=&quot;Digite o novo título para o PDF:&quot;); if [ -n &quot;$TITLE&quot; ]; then exiftool -Title=&quot;$TITLE&quot; -overwrite_original %f; fi</command>
+	<description>Edit PDF title metadata</description>
+	<range>*</range>
+	<patterns>*.pdf</patterns>
+	<other-files/>
 </action>
 <action>
 	<icon></icon>
-	<name>---- Music ----</name>
+	<name>----------------------------- AUDIO ----------------------------- </name>
 	<submenu></submenu>
 	<unique-id>1708631820335736-6</unique-id>
 	<command></command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
-	<directories/>
 	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
 </action>
 <action>
 	<icon>com.github.torikulhabib.mindi.mp3</icon>
 	<name>FLAC to MP3</name>
 	<submenu></submenu>
 	<unique-id>1698256046042160-1</unique-id>
-	<command>xfce4-terminal -e &quot;parallel ffmpeg  -i &apos;{}&apos; -q:a 0 &apos;{}.mp3&apos; ::: %F&quot;</command>
+	<command>xfce4-terminal -e &quot;parallel ffmpeg -i &apos;{}&apos; -q:a 0 &apos;{.}.mp3&apos; ::: %F&quot;
+</command>
 	<description>Convert FLAC to MP3</description>
 	<range></range>
 	<patterns>*.flac</patterns>
@@ -434,16 +608,39 @@
 	<audio-files/>
 </action>
 <action>
+	<icon>audio-x-flac</icon>
+	<name>APE to FLAC</name>
+	<submenu></submenu>
+	<unique-id>1757965790436675-1</unique-id>
+	<command>xfce4-terminal --working-directory=%d -x ~/.config/Thunar/custom_actions/ape2flac.sh %F</command>
+	<description>Convert APE files to FLAC</description>
+	<range>*</range>
+	<patterns>*.ape;*.APE</patterns>
+	<startup-notify/>
+	<audio-files/>
+</action>
+<action>
 	<icon>com.github.torikulhabib.mindi.mp3</icon>
-	<name>Split MP3 with .cue</name>
+	<name>Split MP3 with .cue via mp3splt</name>
 	<submenu></submenu>
 	<unique-id>1700152428851492-1</unique-id>
-	<command>xfce4-terminal --working-directory=%d --command=&quot;mp3splt -c $(basename %f .mp3).cue -o \&quot;@n - @t\&quot; %f&quot; --hold</command>
+	<command>xfce4-terminal --working-directory=%d --command=&quot;mp3splt -f -c $(basename %f .mp3).cue -o \&quot;@n - @p - @t\&quot; %f&quot; --hold</command>
 	<description>Split the MP3 file using cue sheet</description>
 	<range></range>
 	<patterns>*.mp3</patterns>
 	<directories/>
 	<audio-files/>
+</action>
+<action>
+	<icon>com.github.torikulhabib.mindi.mp3</icon>
+	<name>Split MP3 with CUE file via ffcuesplitter</name>
+	<submenu></submenu>
+	<unique-id>1761778900665092-1</unique-id>
+	<command>xfce4-terminal -H -e &quot;bash -c &apos;~/.config/Thunar/custom_actions/split_audio_with_cue.sh %f&apos;&quot;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*.cue;*.CUE</patterns>
+	<other-files/>
 </action>
 <action>
 	<icon>com.github.torikulhabib.mindi.flac</icon>
@@ -461,10 +658,11 @@
 	<name>Create M3U Playlist</name>
 	<submenu></submenu>
 	<unique-id>1700163624772669-1</unique-id>
-	<command>/home/ricardo/.local/bin/create_m3u_playlist.sh %F</command>
+	<command>~/.config/Thunar/custom_actions/create_m3u_playlist.sh %F</command>
 	<description>Generates an M3U playlist from selected files and/or folders</description>
 	<range>*</range>
-	<patterns>*</patterns>
+	<patterns>*.flac;*.mp3</patterns>
+	<directories/>
 	<audio-files/>
 </action>
 <action>
@@ -488,5 +686,32 @@
 	<range>*</range>
 	<patterns>*.xzm</patterns>
 	<other-files/>
+</action>
+<action>
+	<icon>drive-harddisk-ieee1394</icon>
+	<name>Mount Virtual File System</name>
+	<submenu></submenu>
+	<unique-id>1723108560482543-1</unique-id>
+	<command>sh ~/.config/Thunar/custom_actions/mount-virtual-filesys.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*.qcow2;*.vhd;*.vhdx;*.vmdk;*.img;*.vdi;*.iso;*.dmg</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>☢️☢️☢️ DELETE WITH ROOT ☢️☢️☢️</name>
+	<submenu></submenu>
+	<unique-id>1763677444114041-1</unique-id>
+	<command>xfce4-terminal --hold -T &quot;Apagar como root&quot; -x bash -c &apos;sudo rm -rf %F &amp;&amp; echo &quot;Deleted!&quot; || echo &quot;Error or canceled.&quot;&apos;</command>
+	<description>☢️☢️☢️ Delete recursively with root ☢️☢️☢️</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
 </action>
 </actions>
